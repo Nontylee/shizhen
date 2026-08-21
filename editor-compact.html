@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>拾帧 · 吸底编辑</title>
+  <script src="theme.js"></script>
+  <link rel="stylesheet" href="editor-compact.css">
+  <link rel="stylesheet" href="theme.css">
+</head>
+<body>
+  <header class="compact-header">
+    <div class="compact-brand"><img src="assets/logo.svg" alt=""><strong>截图已完成</strong><span>编辑并归档</span></div>
+    <button id="download-button" type="button">下载</button>
+    <button id="save-button" type="button">保存到素材库</button>
+    <button id="close-editor" class="close-button" type="button" aria-label="关闭">×</button>
+  </header>
+  <main class="compact-layout">
+    <section class="compact-preview">
+      <div class="loading" id="loading">正在生成截图…</div>
+      <div class="canvas-wrap" id="canvas-wrap" hidden>
+        <canvas id="editor-canvas"></canvas>
+        <div class="selection-overlay" id="selection-overlay" hidden></div>
+      </div>
+    </section>
+    <section class="compact-tools">
+      <button class="tool-button is-selected" type="button" data-tool="rectangle">标注</button>
+      <button class="tool-button" type="button" data-tool="text">文字</button>
+      <button class="tool-button" type="button" data-tool="blur">模糊</button>
+      <button class="tool-button" type="button" data-tool="crop">裁剪</button>
+      <button class="tool-button" id="undo-button" type="button">撤销</button>
+      <p id="editor-tip">拖动鼠标添加标注框</p>
+    </section>
+    <section class="compact-meta">
+      <label><span>标题</span><input id="item-title" type="text"></label>
+      <label><span>文件夹</span><span class="folder-field"><select id="item-folder"></select><button class="folder-create-button" id="new-folder-button" type="button">新建</button></span></label>
+      <label><span>标签</span><input id="item-tags" type="text" placeholder="用逗号分隔"></label>
+      <div class="source" hidden><strong id="source-title"></strong><a id="source-link"></a></div>
+      <p id="save-status" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+  <dialog id="saved-dialog"><p>已保存</p><button id="close-editor-dialog" type="button">完成</button><button id="view-library" type="button">查看素材库</button></dialog>
+  <script src="asset-db.js"></script>
+  <script src="folders.js"></script>
+  <script src="editor.js"></script>
+</body>
+</html>

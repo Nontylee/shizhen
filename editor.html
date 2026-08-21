@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>拾帧 · 轻编辑</title>
+  <script src="theme.js"></script>
+  <link rel="stylesheet" href="editor.css">
+  <link rel="stylesheet" href="theme.css">
+</head>
+<body>
+  <header class="editor-header">
+    <div class="brand">
+      <img src="assets/logo.svg" alt="">
+      <div><strong>拾帧</strong><span>轻编辑</span></div>
+    </div>
+    <div class="header-actions">
+      <button class="secondary-button" id="download-button" type="button">下载文件</button>
+      <button class="primary-button" id="save-button" type="button">保存到素材库</button>
+    </div>
+  </header>
+
+  <main class="editor-layout">
+    <aside class="tool-panel" aria-label="编辑工具">
+      <button class="tool-button is-selected" type="button" data-tool="rectangle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="5" width="16" height="14" rx="2"/></svg>
+        <span>标注</span>
+      </button>
+      <button class="tool-button" type="button" data-tool="text">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 5h14M12 5v14M8 19h8" stroke-linecap="round"/></svg>
+        <span>文字</span>
+      </button>
+      <button class="tool-button" type="button" data-tool="blur">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="16" r="3"/><path d="m10 14 4-4M15 7h.01M7 17h.01" stroke-linecap="round"/></svg>
+        <span>模糊</span>
+      </button>
+      <button class="tool-button" type="button" data-tool="crop">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 3v14h14M3 7h14v14" stroke-linecap="round"/></svg>
+        <span>裁剪</span>
+      </button>
+      <div class="tool-divider"></div>
+      <button class="tool-button" id="undo-button" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m9 7-5 5 5 5M5 12h8a6 6 0 0 1 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>撤销</span>
+      </button>
+    </aside>
+
+    <section class="canvas-stage" id="canvas-stage">
+      <div class="loading" id="loading">正在生成截图…</div>
+      <div class="canvas-wrap" id="canvas-wrap" hidden>
+        <canvas id="editor-canvas"></canvas>
+        <div class="selection-overlay" id="selection-overlay" hidden></div>
+      </div>
+    </section>
+
+    <aside class="meta-panel">
+      <h2>归档信息</h2>
+      <label>
+        <span>标题</span>
+        <input id="item-title" type="text" placeholder="截图标题">
+      </label>
+      <label>
+        <span>文件夹</span>
+        <div class="folder-field">
+          <select id="item-folder"></select>
+          <button class="folder-create-button" id="new-folder-button" type="button">新建</button>
+        </div>
+      </label>
+      <label>
+        <span>标签</span>
+        <input id="item-tags" type="text" placeholder="用逗号分隔">
+      </label>
+      <div class="source-card">
+        <span>来源页面</span>
+        <strong id="source-title">—</strong>
+        <a id="source-link" href="#" target="_blank" rel="noreferrer">—</a>
+      </div>
+      <p class="editor-tip" id="editor-tip">拖动鼠标添加标注框</p>
+      <p class="save-status" id="save-status" role="status" aria-live="polite"></p>
+    </aside>
+  </main>
+
+  <dialog id="saved-dialog">
+    <div class="success-mark">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <h2>已保存到素材库</h2>
+    <p>截图、来源和标签都已保存在本机。</p>
+    <div class="dialog-actions">
+      <button id="close-editor" type="button">完成</button>
+      <button id="view-library" type="button">查看素材库</button>
+    </div>
+  </dialog>
+
+  <script src="asset-db.js"></script>
+  <script src="folders.js"></script>
+  <script src="editor.js"></script>
+</body>
+</html>

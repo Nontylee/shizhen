@@ -1,0 +1,111 @@
+:root {
+  color-scheme: light dark;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Segoe UI", sans-serif;
+  color: #172033;
+  background: #fbfdff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  width: 400px;
+  min-height: 560px;
+  margin: 0;
+  background: #fbfdff;
+  color: #172033;
+}
+
+button, select, input { font: inherit; }
+button { color: inherit; }
+
+.popup-shell { position: relative; min-height: 560px; padding: 0 16px 16px; }
+
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 64px;
+  margin: 0 -16px;
+  padding: 0 16px;
+  border-bottom: 1px solid #e4ebf5;
+  background: #fff;
+}
+
+.brand-mark { width: 32px; height: 32px; border-radius: 9px; }
+.brand-copy { min-width: 0; }
+.brand-copy strong { display: block; font-size: 14px; font-weight: 600; }
+.brand-copy span { display: block; max-width: 196px; margin-top: 2px; color: #6b778a; font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.icon-button { width: 34px; height: 34px; display: grid; place-items: center; border: 0; border-radius: 9px; background: transparent; cursor: pointer; }
+.icon-button:first-of-type { margin-left: auto; }
+.icon-button:hover, .icon-button[aria-expanded="true"] { background: #edf3fb; }
+.icon-button svg { width: 17px; height: 17px; }
+
+.settings-panel {
+  position: absolute;
+  z-index: 5;
+  top: 54px;
+  right: 12px;
+  width: 236px;
+  padding: 10px 13px;
+  border: 1px solid #d8e2ef;
+  border-radius: 13px;
+  background: #fff;
+  box-shadow: 0 18px 42px rgba(15, 48, 105, .18);
+}
+.settings-panel label { display: flex; align-items: center; min-height: 38px; font-size: 12px; }
+.settings-panel label + label { border-top: 1px solid #e7edf6; }
+.settings-panel select, .settings-panel input { margin-left: auto; }
+.settings-panel select { border: 0; background: transparent; color: #2563eb; }
+.settings-panel input { accent-color: #155eef; }
+
+.page-context { display: flex; align-items: center; gap: 10px; min-height: 48px; margin-top: 14px; padding: 8px 10px; border-radius: 11px; background: #eef4ff; }
+.site-icon { width: 28px; height: 28px; display: grid; place-items: center; flex: 0 0 28px; border-radius: 8px; background: #fff; color: #2563eb; }
+.site-icon svg { width: 15px; height: 15px; }
+.page-context > div { min-width: 0; }
+.page-context strong { display: block; max-width: 300px; font-size: 12px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.page-context span { display: block; margin-top: 2px; color: #738095; font-size: 11px; }
+
+.section-heading { display: flex; align-items: end; justify-content: space-between; gap: 10px; margin: 18px 2px 10px; }
+.section-heading strong { font-size: 13px; font-weight: 600; }
+.section-heading span { color: #778397; font-size: 11px; }
+.destination-heading { margin-top: 17px; }
+
+.capture-modes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.mode-button { min-height: 88px; padding: 11px 6px; border: 1px solid #dbe4f0; border-radius: 12px; background: #fff; cursor: pointer; text-align: center; }
+.mode-button:hover { border-color: #7da2d6; }
+.mode-button.is-selected { border-color: #155eef; background: #eff6ff; color: #155eef; }
+.mode-button svg { width: 22px; height: 22px; }
+.mode-button strong { display: block; margin-top: 6px; font-size: 12px; font-weight: 600; }
+.mode-button span { display: block; margin-top: 3px; color: #7d899c; font-size: 10px; }
+
+.destination-button { display: flex; align-items: center; width: 100%; min-height: 46px; padding: 0 11px; border: 1px solid #dbe4f0; border-radius: 11px; background: #fff; cursor: pointer; text-align: left; }
+.destination-button > svg { width: 17px; height: 17px; margin-right: 9px; color: #2563eb; }
+.destination-button strong { font-size: 12px; font-weight: 600; }
+.destination-button span { margin-left: auto; color: #778397; font-size: 11px; }
+
+.capture-button { width: 100%; min-height: 48px; margin-top: 18px; border: 0; border-radius: 12px; background: #155eef; color: #fff; cursor: pointer; font-weight: 600; }
+.capture-button:hover { background: #0b4fd1; }
+.capture-button:disabled { cursor: wait; opacity: .62; }
+.capture-button span { margin-left: 8px; opacity: .72; font-size: 11px; }
+.secondary-actions { display: flex; justify-content: center; gap: 18px; margin-top: 13px; }
+.secondary-actions button { border: 0; background: transparent; color: #64748b; cursor: pointer; font-size: 11px; }
+.secondary-actions button:hover { color: #155eef; }
+.feedback { min-height: 16px; margin: 8px 0 0; color: #b14436; font-size: 11px; text-align: center; }
+
+@media (prefers-color-scheme: dark) {
+  :root, body { color: #eef4ff; background: #111827; }
+  .app-header { border-color: #2b3a52; background: #172033; }
+  .brand-copy span, .page-context span, .section-heading span, .destination-button span { color: #a6b6ca; }
+  .icon-button:hover, .icon-button[aria-expanded="true"] { background: #25344a; }
+  .settings-panel { border-color: #46566f; background: #1f2a3d; box-shadow: 0 18px 42px rgba(0,0,0,.42); }
+  .settings-panel label + label { border-color: #3d4b61; }
+  .settings-panel select { color: #bfdbfe; }
+  .page-context { background: #1e2b40; }
+  .site-icon { background: #253b5b; color: #bfdbfe; }
+  .mode-button, .destination-button { border-color: #3b4b65; background: #18243a; }
+  .mode-button.is-selected { border-color: #8db8ff; background: #1c3156; color: #dbeafe; }
+  .mode-button span { color: #9fb0c6; }
+  .capture-button { background: #8db8ff; color: #071a3a; }
+  .capture-button:hover { background: #a8c9ff; }
+  .secondary-actions button { color: #aebdd0; }
+}

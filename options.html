@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>拾帧 · 偏好设置</title>
+  <script src="theme.js"></script>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <header class="options-header">
+    <button id="back-button" type="button" aria-label="返回">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m15 5-7 7 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <h1>偏好设置</h1>
+    <span></span>
+  </header>
+
+  <main class="options-main">
+    <section class="settings-section">
+      <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18"/></svg>界面设置</h2>
+      <div class="settings-card">
+        <div class="choice-grid theme-choices" role="group" aria-label="界面主题">
+          <button class="choice-card" type="button" data-setting="theme" data-value="light" aria-pressed="false">
+            <span class="theme-preview light-preview"><i></i><b></b><em></em></span>
+            <strong>浅色</strong>
+          </button>
+          <button class="choice-card" type="button" data-setting="theme" data-value="dark" aria-pressed="false">
+            <span class="theme-preview dark-preview"><i></i><b></b><em></em></span>
+            <strong>深色</strong>
+          </button>
+          <button class="choice-card" type="button" data-setting="theme" data-value="system" aria-pressed="false">
+            <span class="theme-preview system-preview"><i></i><b></b><em></em></span>
+            <strong>跟随系统</strong>
+          </button>
+        </div>
+        <div class="setting-row">
+          <span>语言</span>
+          <select id="language"><option value="browser">跟随浏览器</option></select>
+        </div>
+      </div>
+    </section>
+
+    <section class="settings-section">
+      <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h6l2 2h8v12H4z" stroke-linejoin="round"/><path d="M12 10v6M9 13h6" stroke-linecap="round"/></svg>收藏设置</h2>
+      <div class="settings-card">
+        <div class="choice-grid collection-choices" role="group" aria-label="编辑窗口样式">
+          <button class="choice-card" type="button" data-setting="collectionStyle" data-value="popup" aria-pressed="false">
+            <span class="collection-preview popup-preview"><i></i><b></b></span>
+            <strong>弹窗式</strong>
+          </button>
+          <button class="choice-card" type="button" data-setting="collectionStyle" data-value="bottom" aria-pressed="false">
+            <span class="collection-preview bottom-preview"><i></i><b></b></span>
+            <strong>吸底式</strong>
+          </button>
+          <button class="choice-card" type="button" data-setting="collectionStyle" data-value="disabled" aria-pressed="false">
+            <span class="collection-preview disabled-preview"><i></i><b></b></span>
+            <strong>禁用</strong>
+          </button>
+        </div>
+        <label class="toggle-row">
+          <span><strong>保存图片时，显示编辑窗口进行分类</strong><small>保存时可以修改文件夹、标题和标签。</small></span>
+          <input id="edit-after-capture" type="checkbox">
+          <i></i>
+        </label>
+        <label class="toggle-row">
+          <span><strong>通过浏览器进行下载</strong><small>下载时显示浏览器保存窗口，便于选择存储位置。</small></span>
+          <input id="browser-download" type="checkbox">
+          <i></i>
+        </label>
+        <label class="toggle-row">
+          <span><strong>保存后复制到剪贴板</strong><small>支持时自动复制截图，便于粘贴到聊天和文档。</small></span>
+          <input id="copy-after-capture" type="checkbox">
+          <i></i>
+        </label>
+      </div>
+    </section>
+
+    <section class="settings-section">
+      <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h9l3 3v15H6z" stroke-linejoin="round"/><path d="M15 3v4h4"/></svg>图片设置</h2>
+      <div class="settings-card compact-card">
+        <div class="setting-row"><span>保存格式</span><select id="image-format"><option value="png">PNG</option><option value="jpeg">JPG</option></select></div>
+      </div>
+    </section>
+    <p class="save-feedback" id="save-feedback" role="status" aria-live="polite"></p>
+  </main>
+  <script src="options.js"></script>
+</body>
+</html>
