@@ -1,0 +1,20 @@
+name: 功能建议
+description: 提议新的能力或体验改进
+title: "[Feature] "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: scenario
+    attributes:
+      label: 使用场景
+      description: 你在什么情况下需要这个能力？
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 建议方案
+      description: 希望拾帧如何解决这个问题？
+    validations:
+      required: true
+
